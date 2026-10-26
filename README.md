@@ -59,7 +59,8 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 | Release | File | versionCode | Notes |
 |---------|------|-------------|--------|
-| **Latest (Oct 2026)** — tag **`v1.2.4`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.4.apk` | `663091323` | Auto-detect location fix (Android 16/17); includes v1.2.3 weather cache + clock sync |
+| **Latest (Oct 2026)** — tag **`v1.2.5`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.5.apk` | `663091324` | Open-Meteo auto-detect/GPS follow-up (v1.2.4 + stronger first fix) |
+| v1.2.4 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.4.apk` | `663091323` | Auto-detect location fix (Android 16/17); includes v1.2.3 weather cache + clock sync |
 | v1.2.3 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.3.apk` | `663091322` | Weather rate-limit + cache; clock catch-up; includes language + battery fixes below |
 | Previous — tag **`v1.1.4`** | `…-v1.1.4.apk` | `663091313` | **System language** for city + forecast labels |
 | Previous — tag **`v1.1.3`** | `…-v1.1.3.apk` | `663091312` | First **battery** background reductions |
@@ -68,7 +69,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 **Naming:** base `HTC-WeatherClock-10.10.1059527-android36` + **`-v<TAG>.apk`** or **`-baseline.apk`**. Always pick **Releases → Latest**.
 
-**Latest versionCode:** `663091323` · **targetSdk 36**
+**Latest versionCode:** `663091324` · **targetSdk 36**
 
 ## Requirements
 
@@ -85,7 +86,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
    - Uninstall any existing **`com.htc.widget.weatherclock`** app (Play, OEM, or older APK), then retry.
    - *(This removes the widget from home screens; add it again after install.)*
 
-Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.4.apk`
+Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.5.apk`
 
 ## Add the widget
 
@@ -113,7 +114,7 @@ The flip is driven by many rapid home-screen widget updates (not the old in-layo
 
 ### Try this
 
-1. Install the **[latest release](https://github.com/neptaligonzalez7-afk/htc-weather-flip-clock/releases/latest)** (`…-v1.2.4.apk` or newer). Old APKMirror / pre-bridge builds often never flip on modern Android.
+1. Install the **[latest release](https://github.com/neptaligonzalez7-afk/htc-weather-flip-clock/releases/latest)** (`…-v1.2.5.apk` or newer). Old APKMirror / pre-bridge builds often never flip on modern Android.
 2. Use **Weather Clock → 4×2** only. Smaller or alternate clock widgets may not use the same flip layout.
 3. Remove the widget from the home screen and **add it again** after installing.
 4. At **:58**, stay on the **home screen**, **unlocked**, and watch the **minute** digit change at **:00**.
