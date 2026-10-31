@@ -31,7 +31,7 @@ This release line (**`HTC-WeatherClock-10.10.1059527-android36-*.apk`**) is buil
 |------|--------|
 | **Latest Android compatibility** | **minSdk 24**, **targetSdk 36** — intended for current flagship / stock Android versions, not just old ROMs. |
 | **Weather** | **Works** via **Open-Meteo** (current conditions + forecast data wired into the widget). |
-| **Flip clock** | **Flip animation runs** — Sense-style digit flips on time changes. |
+| **Flip clock** | **HTC Sense 3 flip** (v1.2.7+) — the flap folds down at the hinge and the new half drops into place (0.67 s). On unlock the hour flips once and the minute twice, as on Sense. |
 | **Time updates** | **Clock keeps time** — updates with system time / refresh paths; **does not stay stuck** like the broken legacy behavior. |
 | **Location / sync** | Bridge layer replaces dead HTC sync with a local weather provider and modern refresh behavior. |
 | **Manual city** | Choose a city in widget settings (list or search/add); selection is persisted for the widget. |
@@ -59,7 +59,8 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 | Release | File | versionCode | Notes |
 |---------|------|-------------|--------|
-| **Latest (Oct 2026)** — tag **`v1.2.5`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.5.apk` | `663091324` | Open-Meteo auto-detect/GPS follow-up (v1.2.4 + stronger first fix) |
+| **Latest (Oct 2026)** — tag **`v1.2.7`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.7.apk` | `663091326` | **HTC Sense 3 flip animation** (hinge fold, unlock flip); weather provider readable by Weather Sky wallpaper |
+| v1.2.5 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.5.apk` | `663091324` | Open-Meteo auto-detect/GPS follow-up (v1.2.4 + stronger first fix) |
 | v1.2.4 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.4.apk` | `663091323` | Auto-detect location fix (Android 16/17); includes v1.2.3 weather cache + clock sync |
 | v1.2.3 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.3.apk` | `663091322` | Weather rate-limit + cache; clock catch-up; includes language + battery fixes below |
 | Previous — tag **`v1.1.4`** | `…-v1.1.4.apk` | `663091313` | **System language** for city + forecast labels |
@@ -69,7 +70,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 **Naming:** base `HTC-WeatherClock-10.10.1059527-android36` + **`-v<TAG>.apk`** or **`-baseline.apk`**. Always pick **Releases → Latest**.
 
-**Latest versionCode:** `663091324` · **targetSdk 36**
+**Latest versionCode:** `663091326` · **targetSdk 36**
 
 ## Requirements
 
@@ -86,7 +87,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
    - Uninstall any existing **`com.htc.widget.weatherclock`** app (Play, OEM, or older APK), then retry.
    - *(This removes the widget from home screens; add it again after install.)*
 
-Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.5.apk`
+Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.7.apk`
 
 ## Add the widget
 
@@ -98,7 +99,7 @@ Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.5.apk`
 
 This port keeps the clock on time with **one alarm per minute while unlocked and interactive** (plus system `TIME_TICK` when the app is in memory). It does **not** wake the phone every 60 seconds while idle on the lock screen or in doze.
 
-- **Screen off / locked** — flip minute alarms and the in-app timer loop stop; time **catches up** when you turn the screen on or unlock.
+- **Screen off / locked** — the in-app timer loop stops. Since v1.2.7 the minute alarm stays armed but is **non-wakeup**: it never wakes the phone, it just fires as soon as the screen comes back on, so the clock is on time right away.
 - **Fixed city** — no live GPS seeding or motion location watches; much lower overnight drain than early Open-Meteo builds.
 - **Current location / travel** — network and fused fixes only; passive motion hints (no continuous GPS fixes for routine widget reads).
 - **Weather** — sync is throttled (about **20–30 minutes** between automatic refreshes); Open-Meteo calls are spaced to avoid rate limits.
@@ -110,11 +111,11 @@ On Samsung **Settings → Battery**, if you previously set this app to **Unrestr
 
 There is **no setting in the widget to turn flip animation on or off**. The clock can show the **correct time** while digits **change instantly** — that usually means the flip path did not run, or your **launcher only applied the last widget frame** of a short animation.
 
-The flip is driven by many rapid home-screen widget updates (not the old in-layout `ViewFlipper` animation). It is meant to run when the **screen is on**, the phone is **unlocked**, and the **minute rolls over** while you are on the home screen. On the **lock screen** or **Always On Display**, the widget often **jumps** to the current time when you unlock instead of playing a visible flip.
+Since v1.2.7 the flip is HTC's Sense 3 flip, played by the home screen itself: the app sends one update per flip and the launcher runs the fold-and-drop animation (ported from [BuksaPC/htc-honor-weather-flip-clock](https://github.com/BuksaPC/htc-honor-weather-flip-clock)). It runs when the **minute rolls over** while you are on the home screen, and once more right after you **unlock** (hour once, minute twice).
 
 ### Try this
 
-1. Install the **[latest release](https://github.com/neptaligonzalez7-afk/htc-weather-flip-clock/releases/latest)** (`…-v1.2.5.apk` or newer). Old APKMirror / pre-bridge builds often never flip on modern Android.
+1. Install the **[latest release](https://github.com/neptaligonzalez7-afk/htc-weather-flip-clock/releases/latest)** (`…-v1.2.7.apk` or newer). Old APKMirror / pre-bridge builds often never flip on modern Android.
 2. Use **Weather Clock → 4×2** only. Smaller or alternate clock widgets may not use the same flip layout.
 3. Remove the widget from the home screen and **add it again** after installing.
 4. At **:58**, stay on the **home screen**, **unlocked**, and watch the **minute** digit change at **:00**.
