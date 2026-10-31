@@ -2,6 +2,10 @@
 
 Home-screen **4×2 flip clock** widget in the classic **HTC Sense** style, rebuilt for **modern Android**. Weather uses **Open-Meteo** (no AccuWeather or HTC weather account required).
 
+**All-in-one:** the widget fetches its own weather. You don't need to install a separate weather app (no HTC Weather, Breezy Weather, or AccuWeather app) or create an account.
+
+**As close to the original as possible:** this is HTC's own Weather Clock APK (`10.10.1059527`, package `com.htc.widget.weatherclock`) with HTC's layouts, artwork, settings screens and Sense 3 flip. Only the parts that no longer work on modern Android were replaced: the dead weather backend, background timing, and Android 16 compatibility.
+
 > **Not affiliated with HTC.** Community port for phones where the original widget no longer works correctly.
 
 ## Screenshots
