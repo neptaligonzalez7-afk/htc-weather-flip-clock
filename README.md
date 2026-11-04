@@ -63,7 +63,8 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 | Release | File | versionCode | Notes |
 |---------|------|-------------|--------|
-| **Latest (Oct 2026)** — tag **`v1.2.7`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.7.apk` | `663091326` | **HTC Sense 3 flip animation** (hinge fold, unlock flip); weather provider readable by Weather Sky wallpaper |
+| **Latest (Nov 2026)** — tag **`v1.2.8`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.8.apk` | `663091327` | **Fixes blank weather on fresh installs**: follows current location by default and asks for location permission |
+| v1.2.7 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.7.apk` | `663091326` | **HTC Sense 3 flip animation** (hinge fold, unlock flip); weather provider readable by Weather Sky wallpaper |
 | v1.2.5 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.5.apk` | `663091324` | Open-Meteo auto-detect/GPS follow-up (v1.2.4 + stronger first fix) |
 | v1.2.4 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.4.apk` | `663091323` | Auto-detect location fix (Android 16/17); includes v1.2.3 weather cache + clock sync |
 | v1.2.3 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.3.apk` | `663091322` | Weather rate-limit + cache; clock catch-up; includes language + battery fixes below |
@@ -74,7 +75,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 **Naming:** base `HTC-WeatherClock-10.10.1059527-android36` + **`-v<TAG>.apk`** or **`-baseline.apk`**. Always pick **Releases → Latest**.
 
-**Latest versionCode:** `663091326` · **targetSdk 36**
+**Latest versionCode:** `663091327` · **targetSdk 36**
 
 ## Requirements
 
@@ -91,13 +92,13 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
    - Uninstall any existing **`com.htc.widget.weatherclock`** app (Play, OEM, or older APK), then retry.
    - *(This removes the widget from home screens; add it again after install.)*
 
-Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.7.apk`
+Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.8.apk`
 
 ## Add the widget
 
 1. Long-press home screen → **Widgets**.
 2. Find **Weather Clock** (HTC) → **4×2**.
-3. Place on home screen, then open **settings** to pick **city** and **°F or °C**.
+3. Place on home screen. The widget's settings open: **allow location** when asked (since v1.2.8), then tap **OK** to follow your current location, or **Edit city** to pick a fixed city. **°F or °C** is at the bottom of the same screen.
 
 ## Battery / background usage (v1.2.0+)
 
