@@ -6,6 +6,8 @@ Home-screen **4×2 flip clock** widget in the classic **HTC Sense** style, rebui
 
 **As close to the original as possible:** this is HTC's own Weather Clock APK (`10.10.1059527`, package `com.htc.widget.weatherclock`) with HTC's layouts, artwork, settings screens and Sense 3 flip. Only the parts that no longer work on modern Android were replaced: the dead weather backend, background timing, and Android 16 compatibility.
 
+**Four clock styles (v1.2.11+):** keep HTC's original look, or switch to the HTC One X (Sense 4) digits, cards and weather bar, each with the Sense 3 or the Sense 4 flip.
+
 > **Not affiliated with HTC.** Community port for phones where the original widget no longer works correctly.
 
 ## Screenshots
@@ -35,7 +37,8 @@ This release line (**`HTC-WeatherClock-10.10.1059527-android36-*.apk`**) is buil
 |------|--------|
 | **Latest Android compatibility** | **minSdk 24**, **targetSdk 36** — intended for current flagship / stock Android versions, not just old ROMs. |
 | **Weather** | **Works** via **Open-Meteo** (current conditions + forecast data wired into the widget). |
-| **Flip clock** | **HTC Sense 3 flip** (v1.2.7+) — the flap folds down at the hinge and the new half drops into place (0.67 s). On unlock the hour flips once and the minute twice, as on Sense. |
+| **Flip clock** | **HTC Sense 3 flip** (v1.2.7+) — the flap folds down at the hinge and the new half drops into place (0.67 s). On unlock the hour flips once and the minute twice, as on Sense. **Sense 4 flip** (v1.2.11+) — the One X's steady fall with a sweeping shadow, fading digits and a sinking card. |
+| **Clock style** | **Four styles** (v1.2.11+): HTC or One X (Sense 4) design, each with the Sense 3 or Sense 4 flip. See [Clock styles](#clock-styles). |
 | **Time updates** | **Clock keeps time** — updates with system time / refresh paths; **does not stay stuck** like the broken legacy behavior. |
 | **Location / sync** | Bridge layer replaces dead HTC sync with a local weather provider and modern refresh behavior. |
 | **Manual city** | Choose a city in widget settings (list or search/add); selection is persisted for the widget. |
@@ -52,10 +55,25 @@ Exact layout may vary slightly by launcher and screen size; core clock, flip, an
    - Use **+** / search to find and add a city (e.g. Los Angeles, San Diego), then tap it to select.
 3. **Temperature**
    - Use the **°F / °C** control in settings. The widget should refresh with the unit you picked.
-4. **Language (v1.1.4+)**
+4. **Clock style (v1.2.11+)**
+   - Tap **Clock style** at the bottom of settings and pick one of the four styles below. The widget switches right away.
+5. **Language (v1.1.4+)**
    - City names, forecast day/date labels, and the widget date line follow **system language** (Open-Meteo geocoding + locale date formats). After changing language in Android settings, weather refreshes automatically.
 
 If a city does not stick after you leave settings, install the **latest release** from GitHub. Uninstall older sideloads of the same app if install or behavior is inconsistent.
+
+## Clock styles
+
+Pick a style under **Clock style** in the widget's settings. The design sets the digits, cards and weather bar; the flip sets how each minute turns over.
+
+| Style | What it looks like |
+|-------|--------------------|
+| **HTC design, Sense 3 flip** (default) | The original HTC flip clock. Slim digits with a smooth gradient on white cards with a soft grey lower half. Each minute the top card eases into its fall and settles gently as it lands. |
+| **HTC design, Sense 4 flip** | The original HTC cards and digits with the One X's livelier flip: the top card drops at a steady pace while a shadow sweeps across, the new digits fade in behind it and the old half sinks away. |
+| **One X design, Sense 3 flip** | The HTC One X (Sense 4) look: bolder, wider digits with an embossed highlight on bright white cards split by a thin hinge, and the One X's pinstriped black weather bar. Flips with the original HTC motion: an eased fall and a gentle landing. |
+| **One X design, Sense 4 flip** | The One X as it shipped: its digits, cards and weather bar with its own flip, a steady drop with a sweeping shadow, fading digits and a sinking card. The most faithful Sense 4 look. |
+
+The Sense 4 design and flip come from the One X's own clock widget (`HtcClockWidget.apk`, Sense 4).
 
 ## Download
 
@@ -63,7 +81,8 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 | Release | File | versionCode | Notes |
 |---------|------|-------------|--------|
-| **Latest (Nov 2026)** — tag **`v1.2.8`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.8.apk` | `663091327` | **Fixes blank weather on fresh installs**: follows current location by default and asks for location permission |
+| **Latest (Nov 2026)** — tag **`v1.2.11`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.11.apk` | `663091330` | **Clock style**: HTC or One X (Sense 4) design with the Sense 3 or Sense 4 flip; faster city search; weather tap opens Sense 4 Weather if installed |
+| v1.2.8 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.8.apk` | `663091327` | **Fixes blank weather on fresh installs**: follows current location by default and asks for location permission |
 | v1.2.7 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.7.apk` | `663091326` | **HTC Sense 3 flip animation** (hinge fold, unlock flip); weather provider readable by Weather Sky wallpaper |
 | v1.2.5 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.5.apk` | `663091324` | Open-Meteo auto-detect/GPS follow-up (v1.2.4 + stronger first fix) |
 | v1.2.4 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.4.apk` | `663091323` | Auto-detect location fix (Android 16/17); includes v1.2.3 weather cache + clock sync |
@@ -75,7 +94,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 **Naming:** base `HTC-WeatherClock-10.10.1059527-android36` + **`-v<TAG>.apk`** or **`-baseline.apk`**. Always pick **Releases → Latest**.
 
-**Latest versionCode:** `663091327` · **targetSdk 36**
+**Latest versionCode:** `663091330` · **targetSdk 36**
 
 ## Requirements
 
@@ -92,7 +111,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
    - Uninstall any existing **`com.htc.widget.weatherclock`** app (Play, OEM, or older APK), then retry.
    - *(This removes the widget from home screens; add it again after install.)*
 
-Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.8.apk`
+Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.11.apk`
 
 ## Add the widget
 
@@ -114,7 +133,7 @@ On Samsung **Settings → Battery**, if you previously set this app to **Unrestr
 
 ## Flip animation not visible?
 
-There is **no setting in the widget to turn flip animation on or off**. The clock can show the **correct time** while digits **change instantly** — that usually means the flip path did not run, or your **launcher only applied the last widget frame** of a short animation.
+There is **no setting in the widget to turn flip animation on or off** (**Clock style** only changes which flip plays). The clock can show the **correct time** while digits **change instantly** — that usually means the flip path did not run, or your **launcher only applied the last widget frame** of a short animation.
 
 Since v1.2.7 the flip is HTC's Sense 3 flip, played by the home screen itself: the app sends one update per flip and the launcher runs the fold-and-drop animation (ported from [BuksaPC/htc-honor-weather-flip-clock](https://github.com/BuksaPC/htc-honor-weather-flip-clock)). It runs when the **minute rolls over** while you are on the home screen, and once more right after you **unlock** (hour once, minute twice).
 
