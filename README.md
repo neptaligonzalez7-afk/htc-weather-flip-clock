@@ -8,6 +8,8 @@ Home-screen **4×2 flip clock** widget in the classic **HTC Sense** style, rebui
 
 **Four clock styles (v1.2.11+):** keep HTC's original look, or switch to the HTC One X (Sense 4) digits, cards and weather bar, each with the Sense 3 or the Sense 4 flip.
 
+**Companion weather app (optional):** install **[HTC Sense 4 Weather](https://github.com/neptaligonzalez7-afk/htc-sense4-weather-app)** and tapping the weather on the clock (v1.2.11+) opens it, with the One X's animated weather scenes and forecast. Without it, the tap opens weather.com.
+
 > **Not affiliated with HTC.** Community port for phones where the original widget no longer works correctly.
 
 ## Screenshots
