@@ -10,7 +10,7 @@ Home-screen **4×2 flip clock** widget in the classic **HTC Sense** style, rebui
 
 **Animated weather icon (v1.2.12+):** each time you unlock, the weather icon grows in as it does on the HTC One X, using HTC's own Sense 4 icon animations.
 
-**Weather animation on unlock (v1.2.13+, optional):** HTC's full-screen Sense 4 weather (sun, clouds, rain, snow, storms) plays over the home screen right after you unlock, centred on the screen as on the One X. Off by default; see [Weather animation on unlock](#weather-animation-on-unlock-v1213).
+**Weather animation on unlock (v1.2.13+, optional):** HTC's full-screen Sense 4 weather (sun, clouds, rain, snow, storms) plays over the home screen right after you unlock, centred on the screen as on the One X, with HTC's weather sounds (v1.2.14+). Off by default; see [Weather animation on unlock](#weather-animation-on-unlock-v1213).
 
 **Companion weather app (optional):** install **[HTC Sense 4 Weather](https://github.com/neptaligonzalez7-afk/htc-sense4-weather-app)** and tapping the weather on the clock (v1.2.11+) opens it, with the One X's animated weather scenes and forecast. Without it, the tap opens weather.com.
 
@@ -50,7 +50,7 @@ This release line (**`HTC-WeatherClock-10.10.1059527-android36-*.apk`**) is buil
 | **Flip clock** | **HTC Sense 3 flip** (v1.2.7+) — the flap folds down at the hinge and the new half drops into place (0.67 s). On unlock the hour flips once and the minute twice, as on Sense. **Sense 4 flip** (v1.2.11+) — the One X's steady fall with a sweeping shadow, fading digits and a sinking card. |
 | **Clock style** | **Four styles** (v1.2.11+): HTC or One X (Sense 4) design, each with the Sense 3 or Sense 4 flip. See [Clock styles](#clock-styles). |
 | **Weather icon** | **Animated** (v1.2.12+, Android 9+): after each unlock the icon grows in over about a second, from the One X's own icon animations (`WeatherVideo.apk`), then holds still. Can be turned off. |
-| **Unlock weather** | **Optional** (v1.2.13+, Android 9+): HTC's full-screen Sense 4 weather scene for the current conditions plays for about 6 seconds after you unlock to the home screen. Touches go through to the home screen; the first one fades it out. |
+| **Unlock weather** | **Optional** (v1.2.13+, Android 9+): HTC's full-screen Sense 4 weather scene for the current conditions plays for about 6 seconds after you unlock to the home screen, with HTC's weather sound (v1.2.14+, can be turned off). The first touch fades it out. |
 | **Time updates** | **Clock keeps time** — updates with system time / refresh paths; **does not stay stuck** like the broken legacy behavior. |
 | **Location / sync** | Bridge layer replaces dead HTC sync with a local weather provider and modern refresh behavior. |
 | **Manual city** | Choose a city in widget settings (list or search/add); selection is persisted for the widget. |
@@ -73,6 +73,7 @@ Exact layout may vary slightly by launcher and screen size; core clock, flip, an
    - On by default. Tap **Animated weather icon** at the bottom of settings to turn it off; the icon then stays still.
 6. **Weather animation on unlock (v1.2.13+)**
    - Off by default. Tap **Weather animation on unlock** at the bottom of settings to turn it on, then allow the two permissions it asks for (see [below](#weather-animation-on-unlock-v1213)). Once both are allowed it plays once as a preview.
+   - **Weather animation sound (v1.2.14+)**, just below it: on by default; tap to make the animation silent.
 7. **Language (v1.1.4+)**
    - City names, forecast day/date labels, and the widget date line follow **system language** (Open-Meteo geocoding + locale date formats). After changing language in Android settings, weather refreshes automatically.
 
@@ -93,7 +94,7 @@ The Sense 4 design and flip come from the One X's own clock widget (`HtcClockWid
 
 ## Weather animation on unlock (v1.2.13+)
 
-On the HTC One X, unlocking to the home screen played the current weather full screen: sun rays, drifting clouds, rain on the glass, snow, lightning. Turn it on under **Weather animation on unlock** in the widget's settings. It plays for about 6 seconds, centred on the screen, then fades; touch the home screen and it fades right away (your tap still goes through). It doesn't play when you unlock straight into an app.
+On the HTC One X, unlocking to the home screen played the current weather full screen: sun rays, drifting clouds, rain on the glass, snow, lightning. Turn it on under **Weather animation on unlock** in the widget's settings. It plays for about 6 seconds, centred on the screen, then fades; touch the screen and it fades right away. It doesn't play when you unlock straight into an app.
 
 A widget can only draw inside its own box, so the scene needs two permissions. The settings screen takes you to each one:
 
@@ -106,7 +107,9 @@ If a switch is greyed out as a **restricted setting** (Android 13+ for sideloade
 
 **Samsung:** set **Settings → Apps → Weather Clock → Battery** to **Unrestricted**. On **Optimized**, One UI can tell the widget about an unlock several seconds late; the scene is then skipped rather than played late.
 
-Android 12+ only lets touches pass through another app's window at up to 80% opacity, so the scene shows slightly fainter than on the One X. No sound.
+**Sound (v1.2.14+):** HTC's weather sound for the conditions (sunny, clouds, showers, thunder, snow, fog, windy, hot, cold) plays with the scene and fades out with it. It stays quiet when the phone is on silent, vibrate or Do Not Disturb. Turn it off under **Weather animation sound**.
+
+**Opacity (v1.2.14+):** the scene plays at full strength, as on the One X. Android 12+ doesn't let touches pass through another app's window that opaque, so your first touch only fades the scene out; once it has faded (about 0.05 s) touches reach the home screen again. v1.2.13 played it at 80% so the first tap went through.
 
 ## Download
 
@@ -114,7 +117,8 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 | Release | File | versionCode | Notes |
 |---------|------|-------------|--------|
-| **Latest (Nov 2026)** — tag **`v1.2.13`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.13.apk` | `663091332` | **Weather animation on unlock**: HTC's full-screen Sense 4 weather after unlocking (optional) |
+| **Latest (Nov 2026)** — tag **`v1.2.14`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.14.apk` | `663091333` | **Weather sounds** with the unlock animation (can be turned off); animation at full opacity |
+| v1.2.13 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.13.apk` | `663091332` | **Weather animation on unlock**: HTC's full-screen Sense 4 weather after unlocking (optional) |
 | v1.2.12 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.12.apk` | `663091331` | **Animated weather icon**: grows in like the One X after each unlock |
 | v1.2.11 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.11.apk` | `663091330` | **Clock style**: HTC or One X (Sense 4) design with the Sense 3 or Sense 4 flip; faster city search; weather tap opens Sense 4 Weather if installed |
 | v1.2.8 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.8.apk` | `663091327` | **Fixes blank weather on fresh installs**: follows current location by default and asks for location permission |
@@ -129,7 +133,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 **Naming:** base `HTC-WeatherClock-10.10.1059527-android36` + **`-v<TAG>.apk`** or **`-baseline.apk`**. Always pick **Releases → Latest**.
 
-**Latest versionCode:** `663091332` · **targetSdk 36**
+**Latest versionCode:** `663091333` · **targetSdk 36**
 
 ## Requirements
 
@@ -146,7 +150,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
    - Uninstall any existing **`com.htc.widget.weatherclock`** app (Play, OEM, or older APK), then retry.
    - *(This removes the widget from home screens; add it again after install.)*
 
-Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.13.apk`
+Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.14.apk`
 
 ## Add the widget
 
