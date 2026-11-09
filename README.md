@@ -54,6 +54,7 @@ This release line (**`HTC-WeatherClock-10.10.1059527-android36-*.apk`**) is buil
 | **Time updates** | **Clock keeps time** — updates with system time / refresh paths; **does not stay stuck** like the broken legacy behavior. |
 | **Location / sync** | Bridge layer replaces dead HTC sync with a local weather provider and modern refresh behavior. |
 | **Manual city** | Choose a city in widget settings (list or search/add); selection is persisted for the widget. |
+| **Widget size** | **At least 344 × 220 dp** (v1.2.15+): about 4×2 on Samsung, 5 columns wide on Pixel. HTC's clock is built from fixed-size pieces, so the launcher can no longer squeeze it smaller, which used to cut off the weather bar or push the digits past their cards. |
 | **Temperature unit** | Switch **°F** and **°C** in settings; the widget follows your choice. |
 
 Exact layout may vary slightly by launcher and screen size; core clock, flip, and weather strip are what this port restores.
@@ -117,7 +118,8 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 | Release | File | versionCode | Notes |
 |---------|------|-------------|--------|
-| **Latest (Nov 2026)** — tag **`v1.2.14`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.14.apk` | `663091333` | **Weather sounds** with the unlock animation (can be turned off); animation at full opacity |
+| **Latest (Nov 2026)** — tag **`v1.2.15`** | `HTC-WeatherClock-10.10.1059527-android36-v1.2.15.apk` | `663091334` | **Fixes:** settings open right away; town names instead of house numbers outside the US; clock style menu updates; widget can't be resized too small |
+| v1.2.14 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.14.apk` | `663091333` | **Weather sounds** with the unlock animation (can be turned off); animation at full opacity |
 | v1.2.13 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.13.apk` | `663091332` | **Weather animation on unlock**: HTC's full-screen Sense 4 weather after unlocking (optional) |
 | v1.2.12 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.12.apk` | `663091331` | **Animated weather icon**: grows in like the One X after each unlock |
 | v1.2.11 | `HTC-WeatherClock-10.10.1059527-android36-v1.2.11.apk` | `663091330` | **Clock style**: HTC or One X (Sense 4) design with the Sense 3 or Sense 4 flip; faster city search; weather tap opens Sense 4 Weather if installed |
@@ -133,7 +135,7 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
 
 **Naming:** base `HTC-WeatherClock-10.10.1059527-android36` + **`-v<TAG>.apk`** or **`-baseline.apk`**. Always pick **Releases → Latest**.
 
-**Latest versionCode:** `663091333` · **targetSdk 36**
+**Latest versionCode:** `663091334` · **targetSdk 36**
 
 ## Requirements
 
@@ -150,13 +152,13 @@ Get the latest APK from **[Releases](https://github.com/neptaligonzalez7-afk/htc
    - Uninstall any existing **`com.htc.widget.weatherclock`** app (Play, OEM, or older APK), then retry.
    - *(This removes the widget from home screens; add it again after install.)*
 
-Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.14.apk`
+Developers: `adb install -r HTC-WeatherClock-10.10.1059527-android36-v1.2.15.apk`
 
 ## Add the widget
 
 1. Long-press home screen → **Widgets**.
 2. Find **Weather Clock** (HTC) → **4×2**.
-3. Place on home screen. The widget's settings open: **allow location** when asked (since v1.2.8), then tap **OK** to follow your current location, or **Edit city** to pick a fixed city. **°F or °C** is at the bottom of the same screen.
+3. Place on home screen. It needs at least **344 × 220 dp** (v1.2.15+): about 4×2 on Samsung, 5 columns wide on Pixel. The widget's settings open: **allow location** when asked (since v1.2.8), then tap **OK** to follow your current location, or **Edit city** to pick a fixed city. **°F or °C** is at the bottom of the same screen.
 
 ## Battery / background usage (v1.2.0+)
 
